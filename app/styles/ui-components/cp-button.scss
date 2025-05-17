@@ -1,0 +1,59 @@
+@import "../variables/variables";
+
+.cp-button {
+  padding: 0.625rem 1rem;
+  border: 1px solid $primary-green-color;
+  border-radius: 100px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Tiempos Headline", serif;
+  font-size: 1.25rem;
+  color: $primary-green-color;
+
+  &:hover {
+    background: $primary-green-color;
+    color: white;
+  }
+
+  &__active {
+    font-weight: bold;
+    background: $primary-green-color;
+    color: white;
+    border-color: $primary-green-color;
+  }
+}
+
+.cp-button__container {
+  padding-left: 1rem;
+  gap: 1rem;
+  label {
+    margin-bottom: 1rem !important;
+    font-size: 18px;
+  }
+}
+
+.cp-close-button {
+  border: none;
+  background-color: transparent;
+  font-family: "adobe-caslon-pro", serif;
+  font-size: 16px;
+  color: black;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.cp-button-small {
+  padding: 0.05rem 0.75rem;
+  padding-top: 0.2rem;
+  font-size: 14px;
+  background-color: transparent;
+  font-family: "adobe-caslon-pro", serif;
+  border: 1px solid $border-color;
+  border-radius: 100px;
+  background: white;
+  cursor: pointer;
+}

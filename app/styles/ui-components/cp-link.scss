@@ -1,0 +1,9 @@
+@import "../variables/variables";
+
+.cp-link {
+  &__standard {
+    font-size: 1.125rem;
+    font-weight: 200;
+    color: $primary-green-color;
+  }
+}
