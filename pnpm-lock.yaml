@@ -62,6 +62,9 @@ importers:
       luxon:
         specifier: ^3.5.0
         version: 3.6.1
+      mongodb:
+        specifier: ^6.3.0
+        version: 6.16.0
       mongoose:
         specifier: ^8.9.4
         version: 8.15.0
@@ -111,6 +114,9 @@ importers:
       '@types/luxon':
         specifier: ^3.6.2
         version: 3.6.2
+      '@types/mongodb':
+        specifier: ^4.0.7
+        version: 4.0.7
       '@types/node':
         specifier: 22.13.10
         version: 22.13.10
@@ -894,6 +900,10 @@ packages:
 
   '@types/luxon@3.6.2':
     resolution: {integrity: sha512-R/BdP7OxEMc44l2Ex5lSXHoIXTB2JLNa3y2QISIbr58U/YcsffyQrYW//hZSdrfxrjRZj3GcUoxMPGdO8gSYuw==}
+
+  '@types/mongodb@4.0.7':
+    resolution: {integrity: sha512-lPUYPpzA43baXqnd36cZ9xxorprybxXDzteVKCPAdp14ppHtFJHnXYvNpmBvtMUTb5fKXVv6sVbzo1LHkWhJlw==}
+    deprecated: mongodb provides its own types. @types/mongodb is no longer needed.
 
   '@types/node@22.13.10':
     resolution: {integrity: sha512-I6LPUvlRH+O6VRUqYOcMudhaIdUVWfsjnZavnsraHvpBwaEyMN29ry+0UVJhImYL16xsscu0aske3yA+uPOWfw==}
@@ -2476,6 +2486,18 @@ snapshots:
       '@types/geojson': 7946.0.16
 
   '@types/luxon@3.6.2': {}
+
+  '@types/mongodb@4.0.7':
+    dependencies:
+      mongodb: 6.16.0
+    transitivePeerDependencies:
+      - '@aws-sdk/credential-providers'
+      - '@mongodb-js/zstd'
+      - gcp-metadata
+      - kerberos
+      - mongodb-client-encryption
+      - snappy
+      - socks
 
   '@types/node@22.13.10':
     dependencies:
