@@ -119,7 +119,7 @@ $transitions: (
 // Font face declarations
 @font-face {
   font-family: map.get($font-families, "benton");
-  src: url("/fonts/BentonSans Regular.otf") format("opentype");
+  src: url("/fonts/BentonSans Regular.otf") format("otf");
   font-weight: map.get($font-weights, "regular");
   font-style: normal;
   font-display: swap;
@@ -138,6 +138,10 @@ $transitions: (
   --font-primary:
     #{map.get($font-families, "benton")}, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 // Base styles

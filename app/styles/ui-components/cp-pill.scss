@@ -1,0 +1,11 @@
+@import "../variables/variables";
+
+.cp-pill {
+  background-color: $primary-green-color;
+  padding: 2px 8px;
+  border-radius: 25%;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  color: $text-color-light;
+}

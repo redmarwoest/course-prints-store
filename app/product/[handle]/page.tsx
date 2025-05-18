@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { GridTileImage } from "components/grid/tile";
-import Footer from "components/layout/cp-footer/cp-footer";
+import { Navbar } from "components/layout/cp-navbar/cp-navbar";
+import { CpNavbarHeader } from "components/layout/cp-navbar/cp-navbar-header";
+import { ProductDescription } from "components/product/cp-product-description";
 import { Gallery } from "components/product/gallery";
 import { ProductProvider } from "components/product/product-context";
-import { ProductDescription } from "components/product/product-description";
 import { HIDDEN_PRODUCT_TAG } from "lib/constants";
 import { getProduct, getProductRecommendations } from "lib/shopify";
-import { Image } from "lib/shopify/types";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -82,6 +82,8 @@ export default async function ProductPage(props: {
           __html: JSON.stringify(productJsonLd),
         }}
       />
+      <CpNavbarHeader />
+      <Navbar />
       <div className="mx-auto max-w-(--breakpoint-2xl) px-4">
         <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 md:p-12 lg:flex-row lg:gap-8 dark:border-neutral-800 dark:bg-black">
           <div className="h-full w-full basis-full lg:basis-4/6">
@@ -91,7 +93,7 @@ export default async function ProductPage(props: {
               }
             >
               <Gallery
-                images={product.images.slice(0, 5).map((image: Image) => ({
+                images={product.images.map((image) => ({
                   src: image.url,
                   altText: image.altText,
                 }))}
@@ -107,7 +109,6 @@ export default async function ProductPage(props: {
         </div>
         <RelatedProducts id={product.id} />
       </div>
-      <Footer />
     </ProductProvider>
   );
 }

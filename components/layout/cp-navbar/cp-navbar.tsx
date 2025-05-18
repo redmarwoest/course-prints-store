@@ -1,21 +1,46 @@
+"use client";
+
 import CartModal from "components/cart/modal";
 import LogoIcon from "components/icons/logo";
 import { Menu } from "lib/shopify/types";
 import Link from "next/link";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import MobileMenu from "./mobile-menu";
 
 const { SITE_NAME } = process.env;
 
 const defaultMenu: Menu[] = [
   { title: "About us", path: "/about-us" },
-  { title: "All products", path: "/all-products" },
+  { title: "All products", path: "/products" },
   { title: "Custom design", path: "/custom-design" },
 ];
 
-export async function Navbar() {
+export function Navbar() {
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < 50) {
+        setShow(true);
+      } else if (window.scrollY > lastScrollY) {
+        setShow(false); // scrolling down
+      } else {
+        setShow(true); // scrolling up
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <nav className="relative flex items-center justify-between p-4 lg:px-6">
+    <nav
+      className={`sticky top-0 z-50 transition-transform duration-300 bg-white ${
+        show ? "translate-y-0" : "-translate-y-full"
+      } flex items-center justify-between p-4 lg:px-6`}
+    >
       <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={defaultMenu} />

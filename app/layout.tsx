@@ -1,10 +1,7 @@
 import { CartProvider } from "components/cart/cart-context";
-import ReviewMarquee from "components/cp-review-marquee";
-import { Navbar } from "components/layout/cp-navbar/cp-navbar";
 import { getCart } from "lib/shopify";
 import { baseUrl } from "lib/utils";
 import { ReactNode } from "react";
-import { Toaster } from "sonner";
 import "./styles/globals.scss";
 
 const { SITE_NAME } = process.env;
@@ -33,12 +30,7 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <CartProvider cartPromise={cart}>
-          <ReviewMarquee />
-          <Navbar />
-          <main>
-            {children}
-            <Toaster closeButton />
-          </main>
+          <main>{children}</main>
         </CartProvider>
       </body>
     </html>

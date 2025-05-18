@@ -1,6 +1,11 @@
-import SectionCustom from "components/cp-section-custom";
-import SectionHero from "components/cp-section-hero";
+import { Navbar } from "components/layout/cp-navbar/cp-navbar";
+import ReviewMarquee from "components/layout/cp-review-marquee";
+import SectionCarousel from "components/sections/cp-section-carousel";
+import SectionCustom from "components/sections/cp-section-custom";
+import SectionHero from "components/sections/cp-section-hero";
+import SectionTwoColumns from "components/sections/cp-section-two-columns";
 import { getCollection, getCollectionProducts } from "lib/shopify";
+import Link from "next/link";
 
 export const metadata = {
   description:
@@ -21,24 +26,28 @@ export default async function Home() {
   }
 
   return (
-    <div>
-      <SectionHero />
-      <SectionCustom />
-      {/* <h1 className="text-2xl font-bold mb-4">{collection.title}</h1>
-      <p className="mb-8">{collection.description}</p>
-    <Carousel />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {products.map((product) => (
-          <div key={product.id} className="border p-4 rounded-lg">
-            <h2 className="text-xl font-semibold mb-2">{product.title}</h2>
-            <p className="text-gray-600 mb-2">{product.description}</p>
-            <p className="font-bold">
-              Price: {product.priceRange.minVariantPrice.amount}{" "}
-              {product.priceRange.minVariantPrice.currencyCode}
-            </p>
-          </div>
-        ))}
-      </div> */}
-    </div>
+    <>
+      <ReviewMarquee />
+      <Navbar />
+      <div>
+        <SectionHero />
+        <SectionCustom />
+        <SectionCarousel />
+        <SectionTwoColumns />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {products.map((product) => (
+            <Link key={product.id} href={`/product/${product.handle}`}>
+              <h2 className="text-xl font-semibold mb-2">{product.title}</h2>
+              <p className="text-gray-600 mb-2">{product.description}</p>
+              <p className="font-bold">
+                Price: {product.priceRange.minVariantPrice.amount}{" "}
+                {product.priceRange.minVariantPrice.currencyCode}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
