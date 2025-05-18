@@ -42,7 +42,7 @@ export function Navbar() {
       } flex items-center justify-between p-4 lg:px-6`}
     >
       <div className="block flex-none md:hidden">
-        <Suspense fallback={null}>
+        <Suspense fallback={<div className="h-11 w-11" />}>
           <MobileMenu menu={defaultMenu} />
         </Suspense>
       </div>

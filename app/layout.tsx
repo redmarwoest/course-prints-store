@@ -1,4 +1,5 @@
 import { CartProvider } from "components/cart/cart-context";
+import { PosterProvider } from "components/custom-design/poster-context";
 import { getCart } from "lib/shopify";
 import { baseUrl } from "lib/utils";
 import { ReactNode } from "react";
@@ -30,7 +31,9 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <CartProvider cartPromise={cart}>
-          <main>{children}</main>
+          <PosterProvider>
+            <main>{children}</main>
+          </PosterProvider>
         </CartProvider>
       </body>
     </html>

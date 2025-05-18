@@ -1,0 +1,44 @@
+.hole-manager {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__table {
+    overflow-x: auto;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #e0e0e0;
+      }
+
+      th {
+        background-color: #f5f5f5;
+        font-weight: 600;
+      }
+
+      td {
+        input {
+          width: 60px;
+        }
+      }
+    }
+  }
+}

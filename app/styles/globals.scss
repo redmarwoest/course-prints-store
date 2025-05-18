@@ -6,176 +6,176 @@
 @import "./variables/fonts";
 @import "./variables/margin-padding";
 
-@plugin "@tailwindcss/container-queries";
-@plugin "@tailwindcss/typography";
+// @plugin "@tailwindcss/container-queries";
+// @plugin "@tailwindcss/typography";
 
-// Variables
-$colors: (
-  "primary": (
-    "base": #23533b,
-    "dark": #0051a8,
-  ),
-  "secondary": (
-    "base": #2c7952,
-  ),
-  "accent": (
-    "base": #ffce2b,
-    "green": #cde8b6,
-  ),
-  "white": (
-    "base": #ffffff,
-  ),
-  "gray": (
-    50: #f9fafb,
-    100: #f3f4f6,
-    200: #e5e7eb,
-    300: #d1d5db,
-    400: #9ca3af,
-    500: #6b7280,
-    600: #4b5563,
-    700: #374151,
-    800: #1f2937,
-    900: #111827,
-  ),
-);
+// // Variables
+// $colors: (
+//   "primary": (
+//     "base": #23533b,
+//     "dark": #0051a8,
+//   ),
+//   "secondary": (
+//     "base": #2c7952,
+//   ),
+//   "accent": (
+//     "base": #ffce2b,
+//     "green": #cde8b6,
+//   ),
+//   "white": (
+//     "base": #ffffff,
+//   ),
+//   "gray": (
+//     50: #f9fafb,
+//     100: #f3f4f6,
+//     200: #e5e7eb,
+//     300: #d1d5db,
+//     400: #9ca3af,
+//     500: #6b7280,
+//     600: #4b5563,
+//     700: #374151,
+//     800: #1f2937,
+//     900: #111827,
+//   ),
+// );
 
-$spacing: (
-  "xs": 0.25rem,
-  "sm": 0.5rem,
-  "md": 1rem,
-  "lg": 1.5rem,
-  "xl": 2rem,
-  "2xl": 3rem,
-  "3xl": 4rem,
-);
+// $spacing: (
+//   "xs": 0.25rem,
+//   "sm": 0.5rem,
+//   "md": 1rem,
+//   "lg": 1.5rem,
+//   "xl": 2rem,
+//   "2xl": 3rem,
+//   "3xl": 4rem,
+// );
 
-$typography: (
-  "font-families": (
-    "benton": map-get($font-families, "benton"),
-    "tiempos": map-get($font-families, "tiempos"),
-  ),
-  "sizes": (
-    "xs": 0.75rem,
-    "sm": 0.875rem,
-    "base": 1rem,
-    "lg": 1.125rem,
-    "xl": 1.25rem,
-    "2xl": 1.5rem,
-    "3xl": 1.875rem,
-    "4xl": 2.25rem,
-  ),
-);
+// $typography: (
+//   "font-families": (
+//     "benton": map-get($font-families, "benton"),
+//     "tiempos": map-get($font-families, "tiempos"),
+//   ),
+//   "sizes": (
+//     "xs": 0.75rem,
+//     "sm": 0.875rem,
+//     "base": 1rem,
+//     "lg": 1.125rem,
+//     "xl": 1.25rem,
+//     "2xl": 1.5rem,
+//     "3xl": 1.875rem,
+//     "4xl": 2.25rem,
+//   ),
+// );
 
-$border-radius: (
-  "sm": 0.125rem,
-  "md": 0.375rem,
-  "lg": 0.5rem,
-  "xl": 0.75rem,
-  "2xl": 1rem,
-  "full": 9999px,
-);
+// $border-radius: (
+//   "sm": 0.125rem,
+//   "md": 0.375rem,
+//   "lg": 0.5rem,
+//   "xl": 0.75rem,
+//   "2xl": 1rem,
+//   "full": 9999px,
+// );
 
-$transitions: (
-  "fast": 150ms,
-  "normal": 300ms,
-  "slow": 500ms,
-);
+// $transitions: (
+//   "fast": 150ms,
+//   "normal": 300ms,
+//   "slow": 500ms,
+// );
 
-// Mixins
-@mixin focus-ring {
-  @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
-}
+// // Mixins
+// @mixin focus-ring {
+//   @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+// }
 
-// Root styles
-:root {
-  // Generate CSS custom properties from SCSS variables
-  @each $color-name, $color-variants in $colors {
-    @each $variant, $value in $color-variants {
-      --color-#{$color-name}#{if($variant != 'base', '-#{$variant}', '')}: #{$value};
-    }
-  }
+// // Root styles
+// :root {
+//   // Generate CSS custom properties from SCSS variables
+//   @each $color-name, $color-variants in $colors {
+//     @each $variant, $value in $color-variants {
+//       --color-#{$color-name}#{if($variant != 'base', '-#{$variant}', '')}: #{$value};
+//     }
+//   }
 
-  @each $size, $value in $spacing {
-    --spacing-#{$size}: #{$value};
-  }
+//   @each $size, $value in $spacing {
+//     --spacing-#{$size}: #{$value};
+//   }
 
-  @each $family, $value in map-get($typography, "font-families") {
-    --font-#{$family}: #{inspect($value)};
-  }
+//   @each $family, $value in map-get($typography, "font-families") {
+//     --font-#{$family}: #{inspect($value)};
+//   }
 
-  @each $size, $value in map-get($typography, "sizes") {
-    --text-#{$size}: #{$value};
-  }
+//   @each $size, $value in map-get($typography, "sizes") {
+//     --text-#{$size}: #{$value};
+//   }
 
-  @each $size, $value in $border-radius {
-    --radius-#{$size}: #{$value};
-  }
+//   @each $size, $value in $border-radius {
+//     --radius-#{$size}: #{$value};
+//   }
 
-  @each $speed, $value in $transitions {
-    --transition-#{$speed}: #{$value};
-  }
-}
+//   @each $speed, $value in $transitions {
+//     --transition-#{$speed}: #{$value};
+//   }
+// }
 
-// Font face declarations
-@font-face {
-  font-family: map.get($font-families, "benton");
-  src: url("/fonts/BentonSans Regular.otf") format("otf");
-  font-weight: map.get($font-weights, "regular");
-  font-style: normal;
-  font-display: swap;
-}
+// // Font face declarations
+// @font-face {
+//   font-family: map.get($font-families, "benton");
+//   src: url("/fonts/BentonSans Regular.otf") format("otf");
+//   font-weight: map.get($font-weights, "regular");
+//   font-style: normal;
+//   font-display: swap;
+// }
 
-@font-face {
-  font-family: "Tiempos Headline";
-  src: url("/fonts/test-tiempos-headline-regular.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+// @font-face {
+//   font-family: "Tiempos Headline";
+//   src: url("/fonts/test-tiempos-headline-regular.woff2") format("woff2");
+//   font-weight: normal;
+//   font-style: normal;
+//   font-display: swap;
+// }
 
-// Root styles
-:root {
-  --font-primary:
-    #{map.get($font-families, "benton")}, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+// // Root styles
+// :root {
+//   --font-primary:
+//     #{map.get($font-families, "benton")}, -apple-system, BlinkMacSystemFont,
+//     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   font-smoothing: antialiased;
+//   text-rendering: optimizeLegibility;
+// }
 
-// Base styles
-@layer base {
-  html {
-    font-family: var(--font-primary);
-  }
+// // Base styles
+// @layer base {
+//   html {
+//     font-family: var(--font-primary);
+//   }
 
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
+//   *,
+//   ::after,
+//   ::before,
+//   ::backdrop,
+//   ::file-selector-button {
+//     border-color: var(--color-gray-200, currentColor);
+//   }
+// }
 
-// Dark mode
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+// // Dark mode
+// @media (prefers-color-scheme: dark) {
+//   html {
+//     color-scheme: dark;
+//   }
+// }
 
-// Image optimization
-@supports (font: -apple-system-body) and (-webkit-appearance: none) {
-  img[loading="lazy"] {
-    clip-path: inset(0.6px);
-  }
-}
+// // Image optimization
+// @supports (font: -apple-system-body) and (-webkit-appearance: none) {
+//   img[loading="lazy"] {
+//     clip-path: inset(0.6px);
+//   }
+// }
 
-// Interactive elements
-a,
-input,
-button {
-  @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
-}
+// // Interactive elements
+// a,
+// input,
+// button {
+//   @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+// }

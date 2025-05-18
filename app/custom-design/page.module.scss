@@ -1,0 +1,25 @@
+.cp-container {
+  display: flex;
+  width: 100vw;
+  height: calc(100vh - 38px);
+  padding: 1rem;
+
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  &__inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1rem;
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+    }
+  }
+}

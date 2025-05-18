@@ -1,28 +1,32 @@
+import CartModal from "components/cart/modal";
+import CpCustomComponent from "components/custom-design/cp-custom-component";
 import { CpNavbarHeader } from "components/layout/cp-navbar/cp-navbar-header";
-import { getCollection, getCollectionProducts } from "lib/shopify";
-
-export const metadata = {
-  description:
-    "High-performance ecommerce store built with Next.js, Vercel, and Shopify.",
-  openGraph: {
-    type: "website",
-  },
-};
+import { ProductProvider } from "components/product/product-context";
+import { getProduct } from "lib/shopify";
+import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import styles from "./page.module.scss";
 
 export default async function Home() {
-  const collection = await getCollection("hidden-homepage-carousel");
-  const products = await getCollectionProducts({
-    collection: "hidden-homepage-carousel",
-  });
-
-  if (!collection) {
-    return <div>Collection not found</div>;
-  }
+  const product = await getProduct("custom-order");
+  if (!product) return notFound();
 
   return (
     <>
-      <CpNavbarHeader />
-      <div></div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProductProvider>
+          <div className="absolute right-[32px] top-[48px]">
+            <CartModal />
+          </div>
+
+          <CpNavbarHeader />
+          <div className={styles["cp-container"]}>
+            <div className={styles["cp-container__inner"]}>
+              <CpCustomComponent product={product} />
+            </div>
+          </div>
+        </ProductProvider>
+      </Suspense>
     </>
   );
 }

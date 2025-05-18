@@ -1,1 +1,52 @@
 @import "../variables/variables";
+
+.cp-input {
+  .MuiAutocomplete-inputRoot {
+    font-family: "adobe-caslon-pro", serif;
+  }
+  .MuiInputBase-input {
+    font-family: "adobe-caslon-pro", serif;
+  }
+
+  .MuiFormLabel-root {
+    font-family: "adobe-caslon-pro", serif;
+  }
+
+  .MuiInputBase-root {
+    background-color: $secondary-color;
+    border-radius: 8px 8px 0px 0px;
+
+    &:hover {
+      border: none !important; // Remove border on hover
+    }
+  }
+
+  .MuiOutlinedInput-notchedOutline {
+    border-color: transparent !important; // Ensure the default border is transparent
+    border-bottom: 1px solid $border-color !important;
+
+    &:hover {
+      border-color: transparent !important; // Remove border color on hover
+    }
+  }
+}
+
+.MuiAutocomplete-popper {
+  .MuiAutocomplete-paper {
+    background-color: $secondary-color;
+    font-family: "adobe-caslon-pro", serif;
+    box-shadow: "none" !important; // Removes the drop shadow
+  }
+
+  .MuiAutocomplete-input {
+    margin-top: 3px;
+  }
+
+  .MuiAutocomplete-option {
+    font-size: 16px;
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+}

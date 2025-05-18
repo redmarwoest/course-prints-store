@@ -1,0 +1,223 @@
+@import "../variables/variables";
+
+.cp-canvas {
+  width: 100%;
+  // color: $text-color-light;
+  font-family: "adobe-caslon-pro", serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &__inner {
+    width: min(90%, 90vh);
+    height: min(90%, 90vh);
+    border-radius: 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  &__box {
+    position: relative;
+    background-color: white;
+    padding: 2.5%;
+    aspect-ratio: 12 / 16;
+    width: min(100%, calc(90vh * 12 / 16));
+    height: auto;
+
+    @media (max-width: 768px) {
+      width: 90%;
+      height: auto;
+    }
+
+    &--basic {
+      background-color: $basic-background;
+      color: $basic-text;
+    }
+
+    &--lightBlue {
+      background-color: $lightBlue-background;
+      color: $lightBlue-text;
+    }
+
+    &--green {
+      background-color: $green-background;
+      color: $green-text;
+    }
+
+    &--darkBlue {
+      background-color: $darkBlue-background;
+      color: $darkBlue-text;
+    }
+
+    &--brown {
+      background-color: $brown-background;
+      color: $brown-text;
+    }
+
+    &--horizontal {
+      aspect-ratio: 16 / 12;
+      width: min(100%, calc(90vh * 16 / 12));
+      height: auto;
+      position: relative;
+      padding: 3%;
+
+      @media (max-width: 768px) {
+        width: 90%;
+        height: auto;
+      }
+    }
+
+    &--outline {
+      width: 100%;
+      height: 100%;
+      border: 0.06vw solid #000000;
+      padding: 0.15vw;
+      position: relative;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+
+      &--fat {
+        border: 0.15vw solid #000000;
+
+        &--wallrender {
+          border: 0.0002vw solid #000000 !important;
+        }
+      }
+
+      &--wallrender {
+        border: 0.01vw solid #000000 !important;
+        padding: 0.06vw;
+      }
+
+      &--basic {
+        border-color: $basic-outline;
+      }
+
+      &--lightBlue {
+        border-color: $lightBlue-outline;
+      }
+
+      &--green {
+        border-color: $green-outline;
+      }
+
+      &--darkBlue {
+        border-color: $darkBlue-outline;
+      }
+
+      &--brown {
+        border-color: $brown-outline;
+      }
+    }
+
+    &--nav img {
+      position: absolute;
+      top: 2%;
+      right: 3.5%;
+      width: 12%;
+      height: 9.5%;
+      object-fit: contain;
+    }
+
+    &--nav--horizontal img {
+      position: absolute;
+      top: 2.5%;
+      right: 1.5%;
+      width: 8%;
+      height: 10%;
+      object-fit: contain;
+    }
+
+    &--map {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-svg {
+        width: 100%;
+        height: 100%;
+
+        svg {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    &--text {
+      position: absolute;
+      bottom: 2.5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      height: 20%;
+
+      &-svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      &-title {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: "adobe-caslon-pro", serif;
+      }
+
+      &-subtitle {
+        font-size: 12px;
+        font-family: "adobe-caslon-pro", serif;
+      }
+
+      &-undertitle {
+        font-size: 8px;
+        font-family: "adobe-caslon-pro", serif;
+      }
+    }
+
+    &--text--horizontal {
+      position: absolute;
+      bottom: 2.5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      height: 20%;
+
+      &-svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      &-title {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: "adobe-caslon-pro", serif;
+      }
+
+      &-subtitle {
+        font-size: 16px;
+        font-family: "adobe-caslon-pro", serif;
+      }
+
+      &-undertitle {
+        font-size: 12px;
+        font-family: "adobe-caslon-pro", serif;
+      }
+    }
+  }
+}

@@ -1,1 +1,9 @@
 @import "../variables/variables";
+
+.cp-card {
+  padding: 1rem;
+  background-color: $background-color;
+  border-radius: 8px;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
