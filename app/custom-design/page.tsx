@@ -7,26 +7,35 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import styles from "./page.module.scss";
 
+// Mark this page as dynamic
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function Home() {
-  const product = await getProduct("custom-order");
-  if (!product) return notFound();
+  try {
+    const product = await getProduct("custom-order");
+    if (!product) return notFound();
 
-  return (
-    <>
-      <Suspense fallback={<div>Loading...</div>}>
-        <ProductProvider>
-          <div className="absolute right-[32px] top-[48px]">
-            <CartModal />
-          </div>
-
-          <CpNavbarHeader />
-          <div className={styles["cp-container"]}>
-            <div className={styles["cp-container__inner"]}>
-              <CpCustomComponent product={product} />
+    return (
+      <>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ProductProvider>
+            <div className="absolute right-[32px] top-[48px]">
+              <CartModal />
             </div>
-          </div>
-        </ProductProvider>
-      </Suspense>
-    </>
-  );
+
+            <CpNavbarHeader />
+            <div className={styles["cp-container"]}>
+              <div className={styles["cp-container__inner"]}>
+                <CpCustomComponent product={product} />
+              </div>
+            </div>
+          </ProductProvider>
+        </Suspense>
+      </>
+    );
+  } catch (error) {
+    console.error("Error in custom-design page:", error);
+    throw error; // This will trigger the error boundary
+  }
 }
